@@ -7,6 +7,7 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 var cors = require('cors');
+const RateLimit = require('express-rate-limit');
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
