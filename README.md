@@ -8,7 +8,7 @@ Project is a part of the [Code for Venezuela codeathon](https://github.com/code-
 
 Our index endpoint. Will display main site.
 
-### `/apagones`
+### `/apagon`
 
 Our API endpoint. Will serve data and take in `apagones` via post
 
