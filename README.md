@@ -13,6 +13,7 @@ Our index endpoint. Will display main site.
 Our API endpoint. Will serve data and take in `apagones` via post
 
 - get:
+
   - filters (for the future not now):
     region
     parroquia
@@ -21,7 +22,12 @@ Our API endpoint. Will serve data and take in `apagones` via post
     ciudad
 
   - response data:
-  
+
+    - location: GeoJSON object. coordinates are in `[ longitude , latitude ]` order
+    - source: Where the data was posted from Eg. "twitter", "whatsapp', "browser'
+    - created_at: timestamp of when the data entry was made
+    - type: the type of outage that this is. "power", "water"
+
     Example endpoint response.
 
     ```
