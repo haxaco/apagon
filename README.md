@@ -15,11 +15,11 @@ Our API endpoint. Will serve data and take in `apagones` via post
 - get:
 
   - filters (for the future not now):
-    region
-    parroquia
-    municipio
-    estado
-    ciudad
+    - region
+    - parroquia
+    - municipio
+    - estado
+    - ciudad
 
   - response data:
 
