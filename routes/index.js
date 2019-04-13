@@ -1,5 +1,6 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
+const { getApagonesDBClient }= require('../lib');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -7,29 +8,24 @@ router.get('/', function(req, res, next) {
 });
 
 // API routes
-router.get('/apagon', function (req, res, next) {
-  let result = {
-    data: [
-      {
-        location: {
-          type: "point",
-          coordinates: [ 0.4683841,-66.9604058 ]
-        },
-        source: '',
-        create_at: '2019-04-13 01:00:00',
-        type: ''
-      }
-    ]
-  };
+router.get('/apagon', async (req, res, next) => {
+  const dbClient = await getApagonesDBClient();
+  const results = await dbClient.find();
 
-  res.json(result);
+  res.json(results);
 });
 
 
-router.post('/apagon', function (req, res, next) {
-
+router.post('/apagon', async (req, res, next) => {
+  const dbClient = await getApagonesDBClient();
   const data = req.body;
-  res.render('index', { title: 'Express' });
+  try {
+    const results = await dbClient.insert(data);
+    res.json(results);
+  } catch(error) {
+    console.error(error);
+  }
 });
 
 module.exports = router;
+
