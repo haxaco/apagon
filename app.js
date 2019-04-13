@@ -8,6 +8,7 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 var cors = require('cors');
 const RateLimit = require('express-rate-limit');
+const helmet = require('helmet');
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
@@ -22,7 +23,7 @@ const limiter = new RateLimit({
   headers: true
 });
 app.use(limiter);
-
+app.use(helmet());
 app.use(function(req, res, next) {
   res.setHeader('Server', '');
   res.setHeader('Via', '');
@@ -30,10 +31,7 @@ app.use(function(req, res, next) {
 });
 app.use(helmet.hsts({
   maxAge: 31536000,
-  preload: false,
-  setIf: function() {
-    return process.env.NODE_ENV === 'local' ? false : true;
-  }
+  preload: false
 }));
 
 // view engine setup
