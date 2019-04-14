@@ -119,7 +119,9 @@ Eg schema
     coordinates: [ 40, 5 ]
   },
   name: '',
-  attributes: '',
+  attributes: {
+    ...
+  },
   create_at: '2019-01-01 01:00:00',
   type: ''
 }
