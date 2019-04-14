@@ -1,5 +1,8 @@
 //Main basic styling
 @import 'reset';
 @import 'common';
+@import 'var';
 
 //components styling
+@import 'components/map';
+@import 'components/navigation';
