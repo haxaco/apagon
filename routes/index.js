@@ -1,5 +1,5 @@
 const express = require('express');
-const apagonesCollection = 'apagones';
+const apagonesCollection = 'apagon';
 const lugaresCollection = 'lugares';
 const router = express.Router();
 const {
