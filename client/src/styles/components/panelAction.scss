@@ -1,0 +1,29 @@
+.panel-action {
+    position: fixed;
+    z-index: 999;
+    background: black;
+    margin-top: 80px;
+    padding: 20px;
+    border-radius: 20px;
+    margin-left: 10px;
+
+    &__wrapper {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .btn {
+        padding: 1px solid gray;
+        padding: 10px 20px;
+        cursor: pointer;
+        background: transparent;
+        border-radius: 40px;
+        color: white;
+        font-size: 1.2em;
+        margin-top: 20px;
+        
+        &:first-child {
+            margin-top: 0;
+        }
+    }
+}

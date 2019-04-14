@@ -1,4 +1,4 @@
-.map {
+#map {
     width: 100vw;
     height: 100vh;
 }
@@ -8,6 +8,10 @@
     display: flex;
     justify-content: center;
     align-content: center;
+}
+
+.google-covert {
+    background: white;
 }
 .power-out {
     padding: 5px;
