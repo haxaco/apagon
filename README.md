@@ -100,3 +100,27 @@ Eg schema
   type: ''
 }
 ```
+
+
+__lugares:__ collection for places/landmarks
+
+- name: landmark name.
+- attributes: JSON field of landmark atteributes. Eg. Hospital Type
+- location: GeoJSON field of point type.
+- created_at: date the data is inserted/created
+- type: the type of the place. Eg. "hospital", "school"
+
+Eg schema
+
+```
+{
+  location: {
+    type: "point",
+    coordinates: [ 40, 5 ]
+  },
+  name: '',
+  attributes: '',
+  create_at: '2019-01-01 01:00:00',
+  type: ''
+}
+```
