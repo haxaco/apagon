@@ -44,19 +44,57 @@ router.get('/apagon/:id', async (req, res, next) => {
   res.json(results);
 });
 
-router.patch('/apagon/:id', async (req, res, next) => {
+router.get('/apagon/near', async (req, res, next) => {
+  const { lat, lng, max_distance, min_distance } = req.query;
   const dbClient = await getApagonesDBClient();
-  const results = await dbClient.find(lugaresCollection);
 
-  res.json(results);
-});
-
+  const query = {
+    location: {
+      $near: {
+        $geometry: {
+          type: "Point",
+          coordinates: [parseFloat(lng), parseFloat(lat)]
+        },
+        $maxDistance: parseFloat(max_distance),
+        $minDistance: parseFloat(min_distance)
+      }
+    }
+  };
+  try {
+    res.json(await dbClient.find(apagonesCollection, query));
+  }catch(error) {
+    throw error;
+  }
+})
 // API routes
 router.get('/lugar', async (req, res, next) => {
   const dbClient = await getApagonesDBClient();
   const results = await dbClient.find(lugaresCollection);
 
   res.json({ data: results });
+});
+
+router.get('/lugar/near', async (req, res, next) => {
+  const { lat, lng, max_distance, min_distance } = req.query;
+  const dbClient = await getApagonesDBClient();
+
+  const query = {
+    location: {
+      $near: {
+        $geometry: {
+          type: "Point",
+          coordinates: [parseFloat(lng), parseFloat(lat)]
+        },
+        $maxDistance: parseFloat(max_distance),
+        $minDistance: parseFloat(min_distance)
+      }
+    }
+  };
+  try {
+    res.json(await dbClient.find(lugaresCollection, query));
+  }catch(error) {
+    throw error;
+  }
 });
 
 
@@ -72,6 +110,7 @@ router.post('/lugar', async (req, res, next) => {
     console.error(error);
   }
 });
+
 
 module.exports = router;
 
