@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { getApagonesDBClient }= require('../lib');
+const { getApagonesDBClient, getLugaresDBClient }= require('../lib');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
