@@ -2,6 +2,7 @@
 
 Project is a part of the [Code for Venezuela codeathon](https://github.com/code-for-venezuela/2019-april-codeathon) challenge: [COD-BLA](https://github.com/code-for-venezuela/2019-april-codeathon/tree/master/challenges/COD-BLA).
 
+We are following the [GeoJSON standard](https://tools.ietf.org/html/rfc7946#section-3.1.2) as used by MongoDB
 ## routes
 
 ### /
@@ -126,3 +127,5 @@ Eg schema
   type: ''
 }
 ```
+
+## 
