@@ -1,4 +1,5 @@
 const express = require('express');
+const path = require('path');
 const apagonesCollection = 'apagon';
 const lugaresCollection = 'lugares';
 const router = express.Router();
@@ -10,7 +11,7 @@ const {
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.sendfile('./public/index.html');
+  res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
 });
 
 // API routes

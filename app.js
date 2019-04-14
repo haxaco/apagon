@@ -14,6 +14,7 @@ const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 
 const app = express();
+
 app.use(cors());
 
 const limiter = new RateLimit({
@@ -35,16 +36,25 @@ app.use(helmet.hsts({
 }));
 
 // view engine setup
-app.set('views', path.join(__dirname, 'views'));
 
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+
+if (process.env.NODE_ENV === 'production') {
+  // Express will serve up the production asset
+  // like main.js or main.css!
+  app.use(express.static(path.join(__dirname, 'client/build')));
+  // express will serve up the index.html file
+  // if it doesn't reconize the route
+  // app.get('/', (req, res) => {
+  //     res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+  // });
+}
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
