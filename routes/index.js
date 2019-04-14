@@ -1,5 +1,5 @@
 const express = require('express');
-const apagonesCollection = 'apagon';
+const apagonesCollection = 'apagones';
 const lugaresCollection = 'lugares';
 const router = express.Router();
 const { getApagonesDBClient }= require('../lib');
