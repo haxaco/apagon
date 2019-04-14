@@ -130,4 +130,4 @@ Eg schema
 
 ## External Links
 
-- [Information on Hospitals in Venezuela] (http://maiquiflores.over-blog.es/article-normas-sobre-clasificacion-de-establecimientos-de-atencion-medica-del-sub-sector-salud-37528888.html)
+- [Information on Hospitals in Venezuela](http://maiquiflores.over-blog.es/article-normas-sobre-clasificacion-de-establecimientos-de-atencion-medica-del-sub-sector-salud-37528888.html)
