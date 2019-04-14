@@ -12,7 +12,7 @@ router.get('/apagon', async (req, res, next) => {
   const dbClient = await getApagonesDBClient();
   const results = await dbClient.find();
 
-  res.json(results);
+  res.json({ data: results });
 });
 
 
@@ -20,8 +20,9 @@ router.post('/apagon', async (req, res, next) => {
   const dbClient = await getApagonesDBClient();
   const data = req.body;
   try {
+
     const results = await dbClient.insert(data);
-    res.json(results);
+    res.json({ data: results });
   } catch(error) {
     console.error(error);
   }
@@ -32,7 +33,7 @@ router.get('/lugar', async (req, res, next) => {
   const dbClient = await getLugaresDBClient();
   const results = await dbClient.find();
 
-  res.json(results);
+  res.json({ data: results });
 });
 
 
@@ -41,7 +42,7 @@ router.post('/lugar', async (req, res, next) => {
   const data = req.body;
   try {
     const results = await dbClient.insert(data);
-    res.json(results);
+    res.json({ data: results });
   } catch (error) {
     console.error(error);
   }
