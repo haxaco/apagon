@@ -35,15 +35,6 @@ router.post('/apagon', async (req, res, next) => {
   }
 });
 
-router.get('/apagon/:id', async (req, res, next) => {
-  const dbClient = await getApagonesDBClient();
-  const results = await dbClient.find(apagonesCollection ,{
-    _id: req.params
-  });
-
-  res.json(results);
-});
-
 router.get('/apagon/near', async (req, res, next) => {
   const { lat, lng, max_distance, min_distance } = req.query;
   const dbClient = await getApagonesDBClient();
@@ -61,11 +52,21 @@ router.get('/apagon/near', async (req, res, next) => {
     }
   };
   try {
-    res.json(await dbClient.find(apagonesCollection, query));
+    const results = await dbClient.find(apagonesCollection, query);
+    res.json(results);
   }catch(error) {
     throw error;
   }
 })
+router.get('/apagon/:id', async (req, res, next) => {
+  const dbClient = await getApagonesDBClient();
+  const results = await dbClient.find(apagonesCollection ,{
+    _id: req.params
+  });
+
+  res.json(results);
+});
+
 // API routes
 router.get('/lugar', async (req, res, next) => {
   const dbClient = await getApagonesDBClient();
