@@ -56,8 +56,7 @@ Our API endpoint. Will serve data and take in `apagones` via post
     "location": {
       "lat": 51.0,
       "lng": -0.1
-    },
-    "accuracy": 1200.4,
+    }
     "type": "power",
     "source": "browser"
   }
@@ -69,8 +68,7 @@ Our API endpoint. Will serve data and take in `apagones` via post
     "location": {
       "lat": 51.0,
       "lng": -0.1
-    },
-    "accuracy": 1200.4,
+    }
     "type": "power",
     "source": "twitter"
   }
