@@ -2,7 +2,11 @@ const express = require('express');
 const apagonesCollection = 'apagones';
 const lugaresCollection = 'lugares';
 const router = express.Router();
-const { getApagonesDBClient }= require('../lib');
+const {
+  getApagonesDBClient,
+  validatePostData,
+  transformGeoData
+} = require('../lib');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -17,19 +21,18 @@ router.get('/apagon', async (req, res, next) => {
   res.json({ data: results });
 });
 
-
 router.post('/apagon', async (req, res, next) => {
   const dbClient = await getApagonesDBClient();
   const data = req.body;
   try {
-
-    const results = await dbClient.insert(apagonesCollection, data);
+    validatePostData(data);
+    const transformedData = transformGeoData({ data } );
+    const results = await dbClient.insert(apagonesCollection, transformedData);
     res.json({ data: results });
   } catch(error) {
     console.error(error);
   }
 });
-
 
 router.get('/apagon/:id', async (req, res, next) => {
   const dbClient = await getApagonesDBClient();
@@ -60,7 +63,9 @@ router.post('/lugar', async (req, res, next) => {
   const dbClient = await getApagonesDBClient();
   const data = req.body;
   try {
-    const results = await dbClient.insert(lugaresCollection, data);
+    validatePostData(data);
+    const transformedData = transformGeoData({ data } );
+    const results = await dbClient.insert(lugaresCollection, transformedData);
     res.json({ data: results });
   } catch (error) {
     console.error(error);
