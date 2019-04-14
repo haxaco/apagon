@@ -1,0 +1,39 @@
+.report-panel {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .fade {
+        background: rgba(0, 0, 0, .7);
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
+    }
+
+    &__wrapper {
+        background: black;
+        width: 400px;
+        height: 400px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        position: relative;
+
+        input {
+            width: 100%;
+            padding: 10px;
+            border: 0;
+            border-radius: 20px;
+            margin-top: 10px;
+        }
+
+    }
+
+
+}
+

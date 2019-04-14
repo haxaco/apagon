@@ -65,14 +65,12 @@ class Map extends Component {
       return new window.google.maps.Marker({
         position: location,
         label: labels[i % labels.length],
-        icon: batteryIcon,
-        size: new window.google.maps.Size(25, 25)
       });
     });
     // Add a marker clusterer to manage the markers.
     var markerCluster = new window.MarkerClusterer(map, markers, {
       imagePath:
-        "https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/"
+        "https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m"
     });
   };
   render() {
