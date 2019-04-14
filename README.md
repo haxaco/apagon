@@ -86,6 +86,7 @@ __apagones:__ main collection, will have geospatial data
 - source: where the data comes from. Eg. "twitter", "browser", "whatsapp", "facebook"
 - created_at: date the data is inserted/created
 - type: the type of the outage. Eg. "power", "water"
+- how long: how long has the incident/apagon been happening (minutes)
 
 Eg schema
 
@@ -97,7 +98,8 @@ Eg schema
   },
   source: '',
   create_at: '2019-01-01 01:00:00',
-  type: ''
+  type: '',
+  how_long: 1
 }
 ```
 
